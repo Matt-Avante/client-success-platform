@@ -12,7 +12,7 @@
 <body>
 <div class="shell">
 <aside class="sidebar">
-  <div class="logo"><img src="assets/avante-logo.webp" alt="Avante Media" alt="Avante Media"></div>
+  <div class="logo"><img src="avante-logo.webp" alt="Avante Media"></div>
   <div class="side-title">Client check-in</div>
   <h1>Quarterly Business Check-in</h1>
   <p>Helping us understand your business, how things are changing and how we can support you better.</p>
@@ -72,8 +72,41 @@
  </div>
 </div>
 
+<div class="page" data-title="Marketing performance">
+ <div class="card-head"><div class="eyebrow">4 · Marketing performance</div><h2>How is the marketing supporting the business?</h2><p>This section adapts to the services you receive. We want to understand what you are seeing in the business, not just what appears in the platform data.</p></div>
+ <div class="card-body">
+  <div id="noServicesNotice" class="notice hidden">No services were selected at the start. You can continue, or go back and select the services you currently receive.</div>
+  <div class="service-block hidden" data-service="Google Ads / PPC">
+   <h3>Google Ads / PPC</h3>
+   <div class="grid2"><div class="field"><label class="legend">How satisfied are you with the overall performance of your paid search campaigns?</label><select name="ppc_satisfaction"><option value="">Select</option><option>Very satisfied</option><option>Satisfied</option><option>Neutral</option><option>Dissatisfied</option><option>Very dissatisfied</option></select></div><div class="field"><label class="legend">How would you describe the quality of enquiries from paid search?</label><select name="ppc_lead_quality"><option value="">Select</option><option>Excellent</option><option>Good</option><option>Mixed</option><option>Poor</option><option>Not sure</option></select></div></div>
+   <div class="field"><label class="legend">Is there anything you would like us to change or focus on within paid search?</label><textarea name="ppc_feedback"></textarea></div>
+  </div>
+  <div class="service-block hidden" data-service="SEO">
+   <h3>SEO</h3>
+   <div class="grid2"><div class="field"><label class="legend">How satisfied are you with the progress of your SEO activity?</label><select name="seo_satisfaction"><option value="">Select</option><option>Very satisfied</option><option>Satisfied</option><option>Neutral</option><option>Dissatisfied</option><option>Very dissatisfied</option></select></div><div class="field"><label class="legend">Do you feel organic visibility and enquiries are moving in the right direction?</label><select name="seo_direction"><option value="">Select</option><option>Definitely</option><option>Mostly</option><option>Too early to tell</option><option>Not yet</option><option>Not sure</option></select></div></div>
+   <div class="field"><label class="legend">Are there particular products, services or topics you would like us to prioritise?</label><textarea name="seo_feedback"></textarea></div>
+  </div>
+  <div class="service-block hidden" data-service="Paid Social / Meta">
+   <h3>Paid Social / Meta</h3>
+   <div class="grid2"><div class="field"><label class="legend">How satisfied are you with the overall performance of your paid social activity?</label><select name="meta_satisfaction"><option value="">Select</option><option>Very satisfied</option><option>Satisfied</option><option>Neutral</option><option>Dissatisfied</option><option>Very dissatisfied</option></select></div><div class="field"><label class="legend">How would you describe the quality of leads or engagement from paid social?</label><select name="meta_lead_quality"><option value="">Select</option><option>Excellent</option><option>Good</option><option>Mixed</option><option>Poor</option><option>Not sure</option></select></div></div>
+   <div class="field"><label class="legend">Is there anything you would like us to test or focus on within paid social?</label><textarea name="meta_feedback"></textarea></div>
+  </div>
+  <div class="service-block hidden" data-service="Website / CRO">
+   <h3>Website / CRO</h3>
+   <div class="grid2"><div class="field"><label class="legend">How satisfied are you with the website support and improvements delivered?</label><select name="website_satisfaction"><option value="">Select</option><option>Very satisfied</option><option>Satisfied</option><option>Neutral</option><option>Dissatisfied</option><option>Very dissatisfied</option></select></div><div class="field"><label class="legend">Do you feel the website is helping turn more visitors into enquiries or sales?</label><select name="website_conversion"><option value="">Select</option><option>Definitely</option><option>Mostly</option><option>Sometimes</option><option>Not yet</option><option>Not sure</option></select></div></div>
+   <div class="field"><label class="legend">Are there any website changes or conversion issues you would like us to look at?</label><textarea name="website_feedback"></textarea></div>
+  </div>
+  <div class="service-block hidden" data-service="Other">
+   <h3>Other services</h3>
+   <div class="field"><label class="legend">How are you finding the other support or services you receive from Avante?</label><textarea name="other_service_feedback"></textarea></div>
+  </div>
+  <div class="field"><label class="legend">Overall, do you feel the marketing activity is aligned with the needs of the business?</label><div class="options"><label class="option"><input type="radio" name="marketing_alignment" value="Definitely"><span>Definitely</span></label><label class="option"><input type="radio" name="marketing_alignment" value="Mostly"><span>Mostly</span></label><label class="option"><input type="radio" name="marketing_alignment" value="Partly"><span>Partly</span></label><label class="option"><input type="radio" name="marketing_alignment" value="Not yet"><span>Not yet</span></label></div></div>
+  <div class="actions"><button class="btn btn-secondary prev" type="button">← Back</button><button class="btn btn-primary next" type="button">Continue →</button></div>
+ </div>
+</div>
+
 <div class="page" data-title="How are we doing?">
- <div class="card-head"><div class="eyebrow">4 · Working together</div><h2>How are we doing?</h2><p>We want to know what is working well and where we can improve. Honest feedback helps us provide a better level of support.</p></div>
+ <div class="card-head"><div class="eyebrow">5 · Working together</div><h2>How are we doing?</h2><p>We want to know what is working well and where we can improve. Honest feedback helps us provide a better level of support.</p></div>
  <div class="card-body">
   <div class="field"><label class="legend">Overall, how satisfied are you with the support you receive from Avante? *</label><div class="rating"><label class="option"><input type="radio" name="avante_satisfaction" value="1" required><span>1</span></label><label class="option"><input type="radio" name="avante_satisfaction" value="2" required><span>2</span></label><label class="option"><input type="radio" name="avante_satisfaction" value="3" required><span>3</span></label><label class="option"><input type="radio" name="avante_satisfaction" value="4" required><span>4</span></label><label class="option"><input type="radio" name="avante_satisfaction" value="5" required><span>5</span></label><label class="option"><input type="radio" name="avante_satisfaction" value="6" required><span>6</span></label><label class="option"><input type="radio" name="avante_satisfaction" value="7" required><span>7</span></label><label class="option"><input type="radio" name="avante_satisfaction" value="8" required><span>8</span></label><label class="option"><input type="radio" name="avante_satisfaction" value="9" required><span>9</span></label><label class="option"><input type="radio" name="avante_satisfaction" value="10" required><span>10</span></label></div><div class="scale-labels"><span>Very dissatisfied</span><span>Very satisfied</span></div></div>
   <div class="matrix">
@@ -87,7 +120,7 @@
 </div>
 
 <div class="page" data-title="Final thoughts">
- <div class="card-head"><div class="eyebrow">5 · Final thoughts</div><h2>What should we talk about next?</h2><p>Use this space to raise anything that would make our next conversation more valuable.</p></div>
+ <div class="card-head"><div class="eyebrow">6 · Final thoughts</div><h2>What should we talk about next?</h2><p>Use this space to raise anything that would make our next conversation more valuable.</p></div>
  <div class="card-body">
   <div class="field"><label class="legend">If we were meeting tomorrow, what is the one thing you would most like us to discuss?</label><textarea name="meeting_discussion"></textarea></div>
   <div class="field"><label class="legend">Is there anything we haven’t asked that you would like us to know?</label><textarea name="anything_else"></textarea></div>

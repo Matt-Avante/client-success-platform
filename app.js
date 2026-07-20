@@ -13,11 +13,17 @@ function collect(){const fd=new FormData(form),o={};for(const [k,v] of fd.entrie
 function num(v){const n=Number(v);return Number.isFinite(n)?n:null}
 function health(o){const vals=[num(o.next_quarter_confidence),num(o.avante_satisfaction),num(o.communication),num(o.response_times),num(o.business_understanding),num(o.marketing_knowledge),num(o.quality_advice),num(o.reporting),num(o.proactivity),num(o.overall_support),num(o.nps)];const good=vals.filter(v=>v!==null);return good.length?Math.round((good.reduce((a,b)=>a+b,0)/(good.length*10))*100)/100:0}
 function saveDraft(){localStorage.setItem('avante_checkin_draft',JSON.stringify(collect()))}
-form.addEventListener('input',()=>{saveDraft();toggleAdvocacy()});
+function toggleServiceSections(){
+  const selected=[...form.querySelectorAll('[name=services]:checked')].map(el=>el.value);
+  document.querySelectorAll('.service-block').forEach(block=>block.classList.toggle('hidden',!selected.includes(block.dataset.service)));
+  const notice=document.getElementById('noServicesNotice');
+  if(notice) notice.classList.toggle('hidden',selected.length>0);
+}
+form.addEventListener('input',()=>{saveDraft();toggleAdvocacy();toggleServiceSections()});
 function toggleAdvocacy(){const sat=Number(form.querySelector('[name=avante_satisfaction]:checked')?.value||0),nps=Number(form.querySelector('[name=nps]:checked')?.value||-1);document.getElementById('advocacy').classList.toggle('hidden',!(sat>=9||nps>=9))}
 function download(data){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`avante-checkin-${(data.company||'response').replace(/[^a-z0-9]+/gi,'-').toLowerCase()}-${Date.now()}.json`;a.click();URL.revokeObjectURL(a.href)}
 form.addEventListener('submit',async e=>{e.preventDefault();if(!validatePage())return;const btn=document.getElementById('submitBtn');btn.disabled=true;btn.textContent='Sending…';const data=collect();let sent=false;let message='Your response was saved as a download. Add the Google Apps Script URL in CONFIG to collect responses automatically.';if(CONFIG.responseEndpoint){try{await fetch(CONFIG.responseEndpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)});sent=true;message='Your response has been sent to Avante.'}catch(err){message='We could not reach the response sheet, so a backup has been downloaded.'}}if(CONFIG.downloadBackup)download(data);localStorage.removeItem('avante_checkin_draft');document.getElementById('formArea').classList.add('hidden');document.getElementById('successArea').classList.remove('hidden');document.getElementById('submitStatus').textContent=message;document.getElementById('sumConfidence').textContent=data.next_quarter_confidence?data.next_quarter_confidence+'/10':'—';document.getElementById('sumSatisfaction').textContent=data.avante_satisfaction?data.avante_satisfaction+'/10':'—';document.getElementById('sumNps').textContent=data.nps!==undefined&&data.nps!==''?data.nps+'/10':'—';document.getElementById('progressBar').style.width='100%';document.getElementById('progressText').textContent='100%'});
 document.getElementById('restartBtn').addEventListener('click',()=>location.reload());
 // Prefill supported URL fields: ?company=Acme&client_name=Alex&quarter=Q3%202026
 const params=new URLSearchParams(location.search);['company','client_name','email','quarter'].forEach(k=>{if(params.get(k)&&form.elements[k])form.elements[k].value=params.get(k)});
-update();toggleAdvocacy();
+update();toggleAdvocacy();toggleServiceSections();
