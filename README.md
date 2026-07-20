@@ -1,4 +1,4 @@
-# Avante Quarterly Business Check-in
+# Avante Client Success Scorecard
 
 A client-facing quarterly check-in that keeps the structure and feel of the original Avante Client Success Scorecard while broadening the conversation to cover the client’s business, customers, sales, future priorities, marketing performance and experience working with Avante.
 

@@ -72,3 +72,12 @@ input:focus,textarea:focus,select:focus{border-color:var(--blue2);box-shadow:0 0
 @media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{position:relative;height:auto;padding:18px 20px}.sidebar h1,.sidebar p,.steps,.side-note{display:none}.logo{margin:0 0 16px;padding:8px;max-width:190px}.progress-wrap{margin-top:0}.main{padding:14px}.card-head,.card-body{padding-left:20px;padding-right:20px}.card-head h2{font-size:25px}.grid2,.options{grid-template-columns:1fr}.rating{grid-template-columns:repeat(5,1fr)}.matrix{overflow-x:auto}.matrix-row{min-width:650px}.summary{grid-template-columns:1fr}}
 .service-block{padding:22px 22px 4px;margin-bottom:24px;border:1px solid var(--line);border-radius:16px;background:#fbfdff}
 .service-block h3{margin:0 0 20px;font-size:20px;color:var(--navy)}
+
+/* Mobile scorecard header alignment */
+@media(max-width:850px){
+  .sidebar{text-align:center;display:flex;flex-direction:column;align-items:stretch}
+  .logo{margin:0 auto 16px;max-width:220px;width:100%}
+  .side-title{text-align:center;letter-spacing:.12em}
+  .progress-wrap{width:100%;text-align:left}
+  .progress-label{width:100%}
+}
